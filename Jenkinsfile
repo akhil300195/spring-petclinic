@@ -10,15 +10,18 @@ node {
 	  sh 'mvn clean package'
    }
 
-   
-   
+ 
    stage ('archival') {
      // archiving artifacts
 	 archive 'target/*.jar'
    }
   
+   
    stage ('publish test results') {
       // publishing test results
          junit 'target/surefire-reports/*.xml'
-   } 
+   
+   }
+ 
+
 }
